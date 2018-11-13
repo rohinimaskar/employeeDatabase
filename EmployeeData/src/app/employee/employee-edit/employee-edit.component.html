@@ -1,0 +1,123 @@
+<div class="container">
+	<div class = "row col-sm-12">
+		<h2> Emploee Details Form</h2>
+		<hr align="left"/>
+	</div>		
+	<form #employeeForm="ngForm" (ngSubmit)="submit()" ngNativeValidate>
+		<div class = "row">
+			<div class = "form-group col-sm-3">
+				<label class="required" >Name</label>
+			    <input type="text" class="form-control" [(ngModel)]="employee.name" name="name" required #name="ngModel">
+			    <div [hidden]="name.valid || name.pristine"
+			     class="alert alert-danger">
+			     Name is required
+			    </div>
+			</div>
+			<div class = "form-group col-sm-3">
+				<label class="required" >Employee Id</label>
+			    <input type="text" class="form-control" [(ngModel)]="employee.employeeId" name="employeeId" required #employeeId="ngModel">
+			    <div [hidden]="employeeId.valid || employeeId.pristine"
+			     class="alert alert-danger">
+			     employee Id is required
+			    </div>
+			</div>				
+		</div>
+		<div class="row">
+			<div class = "form-group col-sm-3">
+				<label class="required" >Gender</label><br>
+			    <input type="radio" [(ngModel)]="employee.gender" name="gender" [value]="'male'"> Male
+                <input type="radio" [(ngModel)]="employee.gender" name="gender" [value]="'female'"> Female
+                <input type="radio" [(ngModel)]="employee.gender" name="gender" [value]="'other'"> Other
+			</div>
+			<div class = "form-group col-sm-3">
+				<label class="required" >Date of Birth</label>
+			    <input type="text" class="form-control" [(ngModel)]="employee.dob" name="dob" required #dob="ngModel">			    
+			</div>					
+		</div>
+		<Strong> Address Information:</Strong>
+		<div class="row">
+			<div class = "form-group col-sm-3">
+				<label class="required" >Street</label>
+			    <input type="text" class="form-control" [(ngModel)]="employee.address.street" name="street" required >
+			</div>
+			<div class = "form-group col-sm-3">
+				<label class="required" >City</label>
+			    <input type="text" class="form-control" [(ngModel)]="employee.address.city" name="city" required >
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-sm-3">
+			 <label class="required" >State</label>
+			 <input type="text" class="form-control" [(ngModel)]="employee.address.state" name="state" required>
+		     </div>
+		    <div class="form-group col-sm-3">
+			 <label class="required" >Zip</label>
+			 <input type="text" class="form-control" [(ngModel)]="employee.address.zip" name="zip" required >
+		    </div>
+		</div>
+		<br>
+		<Strong> Contact Information:</Strong>
+		<div class="row">
+			<div class = "form-group col-sm-3">
+				<label class="required" >Phone Number</label>
+			    <input type="text" class="form-control" [(ngModel)]="employee.phoneNumber" name="phoneNumber" required >
+			</div>
+			<div class = "form-group col-sm-3">
+				<label class="required" >Email Id</label>
+			    <input type="text" class="form-control" [(ngModel)]="employee.email" name="email" required >
+			</div>
+		</div>
+		<br>
+		<Strong> Department Information:</Strong>
+		<div class="row">
+			<div class = "form-group col-sm-3">
+				<label class="required" >Department Name</label>
+			    <input type="text" class="form-control" [(ngModel)]="employee.department" name="department" required >   
+			</div>
+			<div class = "form-group col-sm-3">
+				<label class="required" >Manager</label>
+			    <input type="text" class="form-control" [(ngModel)]="employee.manager" name="manager" required >
+			</div>
+		</div>
+		<br>
+		<Strong> Salary Information:</Strong><br>
+		<Strong> Earning:</Strong>
+		<div class="row">
+			<div class = "form-group col-sm-3">
+				<label class="required" >Base Salary</label>
+			    <input type="text" class="form-control" [(ngModel)]="employee.baseSalary" name="baseSalary" required > 
+			</div>
+			<div class = "form-group col-sm-3">
+				<label class="required" >Incentive</label>
+			    <input type="text" class="form-control" [(ngModel)]="employee.incentive" name="incentive" required > 
+			</div>
+			<div class = "form-group col-sm-3">
+				<label class="required" >Other Allowance</label>
+			    <input type="text" class="form-control" [(ngModel)]="employee.otherAllowance" name="othetAllowance" required > 
+			</div>
+		</div>
+		<Strong> Deduction:</Strong>
+		<div class="row">
+			<div class = "form-group col-sm-3">
+				<label class="required" >Taxes</label>
+			    <input type="text" class="form-control" [(ngModel)]="employee.deduction.taxes" name="taxes" required > 
+			</div>
+			<div class = "form-group col-sm-3">
+				<label class="required" >Medical</label>
+			    <input type="text" class="form-control" [(ngModel)]="employee.deduction.healthInsurance" name="medical" required > 
+			</div>
+			<div class = "form-group col-sm-3">
+				<label class="required" >401K</label>
+			    <input type="text" class="form-control" [(ngModel)]="employee.deduction['401k']" name="401k" required > 
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-sm-6">			 
+			 <button type="submit" class = "btn"  [disabled]="!employeeForm.form.valid">Submit</button>
+			 &nbsp;
+			 <button type="submit" class = "btn"  (click) = "goList()">Cancel</button>
+		</div>
+		</div>
+
+	</form>
+</div>
